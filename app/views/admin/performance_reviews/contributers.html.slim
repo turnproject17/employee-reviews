@@ -1,0 +1,22 @@
+.x_panel
+	.x_content
+		.row
+			-if @contributers.present?
+				.col-md-12
+					.table-responsive
+						table.table.table-striped
+							-@contributers.each do |contributer|
+								tr
+									td=contributer.identity
+		.row
+			.col-md-12
+				=form_for @review, url: admin_employee_performance_review_path(@employee, @review) do |f|
+					.col-md-6
+						.form-group
+							=f.label :add_contributers
+							=f.select :contributer_ids, options_for_select(@users.collect{|w| [w.identity, w.id]}, @review.contributers.pluck(:id)), {}, {:multiple => true, class:"form-control selectpicker"}
+							=f.submit "Add contributers", class:"btn btn-success"
+							
+
+
+

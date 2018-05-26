@@ -1,0 +1,10 @@
+.x_panel
+	.x_content
+		.row
+			.col-md-12
+				=form_for @employee, url: admin_employee_path do |f|
+					=render "form", f:f
+javascript:
+  $( "#datepicker").datepicker({
+		  altFormat: "dd-mm-yyyy"
+	});

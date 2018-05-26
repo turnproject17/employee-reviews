@@ -1,0 +1,16 @@
+.x_panel
+	.x_content
+		.row
+			.col-md-12
+				=link_to "Contributers", contributers_admin_employee_performance_review_path(@employee, @review)
+		.row
+			.col-md-12
+				h3 
+					|#{@review.user.identity} 
+					small has received review #{time_ago_in_words(@review.created_at)} ago
+				p 
+					=@review.body	
+		.row
+			ul.messages
+				=render partial: "comment", collection: @comments
+				=render "comment_form"

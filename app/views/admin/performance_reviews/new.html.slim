@@ -1,0 +1,10 @@
+.x_panel
+	.x_content
+		.row
+			.col-md-12
+				=form_for @review,url: admin_employee_performance_reviews_path do |f|
+					.form-group
+						=f.label :performance_review
+						=f.text_area :body, class:"form-control"
+					.form-group
+						=f.submit "Submit", class:"btn btn-success"	

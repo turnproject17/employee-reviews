@@ -1,0 +1,22 @@
+.x_panel
+	.x_content
+		.row
+			.col-md-12
+				=link_to "Add new", new_admin_employee_performance_review_path(@employee)
+			.col-md-12
+				-if @reviews.blank?
+					|No review has given yet!
+				-else
+					table.table.table-striped
+						thead
+							th Given by
+							th Given at
+						tbody
+							-@reviews.each do |review|
+								tr
+									td =review.given_by_user.identity
+									td #{time_ago_in_words(review.created_at)} ago
+									td 
+										=link_to "show", admin_employee_performance_review_path(@employee, review), class:"btn btn-primary"
+										=link_to "Contributers", contributers_admin_employee_performance_review_path(@employee, review)
+							

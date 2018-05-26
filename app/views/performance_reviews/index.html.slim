@@ -1,0 +1,21 @@
+.x_panel
+	.x_content
+		.row
+			.col-md-12
+				-if @reviews.blank?
+					| No reviews found!
+				-else
+					table.table.table-striped	
+						thead
+							th Given by 
+							th Given at
+							th For contribution
+							th Action
+						tbody	 
+							-@reviews.each do |review|
+								tr
+									td =review.given_by_user.identity
+									td #{time_ago_in_words(review.created_at)} ago
+									td =current_user.need_contribution?(review) ? "Yes" : "No"
+									td 
+										=link_to "show", review, class:"btn btn-primary"

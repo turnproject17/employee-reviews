@@ -1,0 +1,16 @@
+.x_panel
+	.x_content
+		.row
+			.col-md-12
+				h3 
+					-if current_user.need_contribution? @review
+						|you can contribute in performace review of #{@review.user.identity}
+					-else
+						|#{@review.given_by_user.identity} 
+						small has given you review #{time_ago_in_words(@review.created_at)} ago
+				p 
+					=@review.body	
+		.row
+			ul.messages
+				=render partial: "comment", collection: @comments
+				=render "comment_form"

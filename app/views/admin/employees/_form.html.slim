@@ -1,0 +1,37 @@
+-if params["action"] == "new" || params["action"] == "create"
+	=f.hidden_field :by_admin,value: true
+	=f.hidden_field :password,value: "123456"
+	.col-md-6
+		.form-group
+			=f.label :email
+			=f.text_field :email, class:"form-control"
+.col-md-6
+	.form-group
+		=f.label :first_name
+		=f.text_field :first_name, class:"form-control"
+.col-md-6
+	.form-group
+		=f.label :last_name
+		=f.text_field :last_name, class:"form-control"		
+.col-md-6
+	.form-group
+		=f.label :address
+		=f.text_field :address, class:"form-control"				
+.col-md-6
+	.form-group
+		=f.label :zipcode
+		=f.text_field :zipcode, class:"form-control"					
+.col-md-6
+	.form-group
+		=f.label :joining_date
+		=f.text_field :joining_date, class:"form-control", id:"datepicker", autocomplete: "off"			
+.col-md-6
+	.form-group
+		=f.label :designation
+		=f.text_field :designation, class:"form-control"				
+.col-md-12
+	.form-group
+		=f.label :about
+		=f.text_area :about, class:"form-control"
+.col-md-12
+	=f.submit "Submit", class:"btn btn-primary"						

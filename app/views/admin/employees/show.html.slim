@@ -1,0 +1,31 @@
+.x_panel
+	.x_content
+		.row
+			.col-md-12
+				.well
+					table.table.table-bordered.table-responsive
+						tr
+							td Email
+							td =@employee.email
+						tr
+							td Name
+							td =@employee.full_name
+						tr
+							td Address
+							td =@employee.address||"N/A"
+						tr
+							td Zipcode
+							td =@employee.zipcode||"N/A"
+						tr
+							td Date of Joining
+							td =@employee.joining_date.strftime("%d-%m-%Y")	rescue "N/A"	
+						tr
+							td Designation
+							td =@employee.designation||"N/A"
+						tr
+							td About
+							td =@employee.about||"N/A"
+		.row			
+			.col-md-12
+				=link_to "Edit", edit_admin_employee_path, class:"btn btn-primary"
+				=link_to "Performance reviews", admin_employee_performance_reviews_path(@employee), class:"btn btn-success"

@@ -1,0 +1,38 @@
+.x_panel
+	.x_content
+		.row
+			=form_for current_user, url: profile_path do |f|
+				.col-md-6.col-xs-12
+					.form-group
+						=f.label :first_name
+						=f.text_field :first_name, class:"form-control"
+				.col-md-6.col-xs-12
+					.form-group
+						=f.label :last_name
+						=f.text_field :last_name, class:"form-control"		
+				.col-md-6.col-xs-12
+					.form-group
+						=f.label :address
+						=f.text_field :address, class:"form-control"				
+				.col-md-6.col-xs-12
+					.form-group
+						=f.label :zipcode
+						=f.text_field :zipcode, class:"form-control"					
+				.col-md-6.col-xs-12
+					.form-group
+						=f.label :joining_date
+						=f.text_field :joining_date, class:"form-control", id:"datepicker"			
+				.col-md-6.col-xs-12
+					.form-group
+						=f.label :designation
+						=f.text_field :designation, class:"form-control"				
+				.col-md-12.col-xs-12
+					.form-group
+						=f.label :about
+						=f.text_area :about, class:"form-control"
+				.col-md-12.col-xs-12
+					=f.submit "Submit", class:"btn btn-primary"						
+javascript:
+  $( "#datepicker").datepicker({
+		  altFormat: "dd-mm-yyyy"
+	});

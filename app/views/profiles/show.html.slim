@@ -1,0 +1,29 @@
+.x_panel
+	.x_content
+		.row
+			.col-md-12.well
+				table.table.table-bordered
+					tr
+						td Email
+						td =current_user.email
+					tr
+						td Name
+						td =current_user.full_name
+					tr
+						td Address
+						td =current_user.address||"N/A"
+					tr
+						td Zipcode
+						td =current_user.zipcode||"N/A"
+					tr
+						td Date of Joining
+						td =current_user.joining_date.strftime("%d-%m-%Y")	rescue "N/A"	
+					tr
+						td Designation
+						td =current_user.designation||"N/A"
+					tr
+						td About
+						td =current_user.about||"N/A"
+		.row			
+			.col-md-12
+				=link_to "Edit", edit_profile_path

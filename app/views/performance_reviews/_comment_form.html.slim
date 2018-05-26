@@ -1,0 +1,11 @@
+li
+	=form_tag comment_performance_review_path do 
+		.user_icon.avatar =current_user.identity.first
+		/ .message_date
+			p.month =time_ago_in_words(comment.created_at)
+		.message_wrapper
+			h4.heading =current_user.identity
+			blockquote.message 
+				=text_area_tag "comment[body]", "",class:"form-control"
+				br
+				=submit_tag "submit", class:"btn btn-success"

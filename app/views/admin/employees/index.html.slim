@@ -1,0 +1,26 @@
+.x_panel
+	.x_content
+		.panel
+			.panel-body
+				=form_tag "", method: :get do 
+					.col-md-6
+						=text_field_tag "q[search]",(params[:q][:search] if params[:q] && params[:q][:search]), class:"form-control"
+					.col-md-6
+						=submit_tag "search", class:"btn btn-success"
+		-if @employees.present?
+			.table-responsive
+				table.table.table-striped.table-bordered
+					th Email 
+					th Name 
+					th Action
+					.pull-right
+						=link_to "Add new", new_admin_employee_path, class:"btn btn-primary"
+					tbody
+						-@employees.each do |employee|
+							tr
+								td=employee.email
+								td=employee.full_name
+								td 
+									=link_to "View", admin_employee_path(employee), class:"btn btn-primary"
+									=link_to "<i class='fa fa-pencil'></i>".html_safe, edit_admin_employee_path(employee), class:"btn btn-success"
+									=link_to "<i class='fa fa-remove'></i>".html_safe, admin_employee_path(employee), class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' }

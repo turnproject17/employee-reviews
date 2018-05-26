@@ -1,0 +1,49 @@
+doctype html
+html lang="en" 
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    /! Meta, title, CSS, favicons, etc.
+    = csrf_meta_tag
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    title kalebr_test
+    link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" 
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css"
+
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css"
+    link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    script src="https://code.jquery.com/jquery-1.12.4.js" 
+    script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" 
+    / = stylesheet_link_tag "admin", media: "all", "data-turbolinks-track" => false
+    = stylesheet_link_tag "application", :media => "all" 
+    = yield :css
+    = yield :head
+
+  body.nav-md
+    .container.body
+      .main_container
+        .col-md-3.left_col
+          .left_col.scroll-view
+            .navbar.nav_title style="border: 0;"
+              a.site_title href="/" 
+                i.fa.fa-pencil 
+                |&nbsp;
+                span Admin
+            .clearfix
+            br/
+            = render partial: "admin/shared/sidebar" 
+        = render partial: "admin/shared/header" 
+        .right_col role="main"
+          = flash_messages 
+          .page_title  
+            = yield :page_actions
+          = yield 
+        footer
+          .pull-right
+            | Copyright &copy; 2017
+            a href="/"  kalebr_test
+          .clearfix
+    = javascript_include_tag "application" 
+    = yield :js
+    / = render "spree/admin/shared/translations"
